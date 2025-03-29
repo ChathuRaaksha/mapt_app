@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
     setMessage(''); // Clear previous messages
 
     try {
-      const response = await axios.post('http://maptapp.atwebpages.com/api/post_subscribe.php', {
+      const response = await axios.post('https://maptapp.atwebpages.com/api/post_subscribe.php', {
         email,
       });
 

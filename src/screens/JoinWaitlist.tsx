@@ -18,7 +18,7 @@ const JoinWaitlist: React.FC = () => {
 
     try {
       // Use fetch to debug if axios is failing
-      const response = await fetch("http://maptapp.atwebpages.com/api/post_waitinglist.php", {
+      const response = await fetch("https://maptapp.atwebpages.com/api/post_waitinglist.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
