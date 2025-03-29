@@ -1,0 +1,171 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.join-container {
+  display: flex;
+  justify-content: -spacebetween;
+  align-items: center;
+  
+  height: 92vh;
+  padding: 50px 10%;
+  background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
+}
+  
+  
+  .join-content {
+    max-width: 50%;
+  }
+  
+  .join-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .join-content p {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .black-button {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .black-button:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .join-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 22%;
+  }
+  
+  .join-image img {
+    width: 100%;
+    height: auto;
+    max-width: auto;
+    max-height: auto;
+    object-fit: contain;
+  }
+  
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* The Modal Box */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1001; /* Ensure it's above overlay */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add a temporary red border to locate the modal */
+.modal {
+  border: 3px solid red; /* Temporary for debugging */
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Input Field */
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+.modal button {
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: white;
+  color: black;
+  border: 2px solid black;
+}
+.waitlist-form {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.waitlist-form input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.waitlist-form button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.waitlist-form button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.message {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}

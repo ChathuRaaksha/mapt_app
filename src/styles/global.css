@@ -1,0 +1,53 @@
+/* frontend/src/styles/global.css */
+/* global.css */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #FEFFFF, #D9F7FF, #B9F1FE);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+  
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .container {
+    padding: 20px;
+    
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .mt-5 {
+    margin-top: 3rem;
+  }
+  
+  .display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    color: #555;
+  }
+  
