@@ -4,4 +4,6 @@
   text-align: center;
   padding: 20px;
   font-size: 14px;
+  position: relative; /* Ensures it doesn't overlap */
+  width: 100%;
 }

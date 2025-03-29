@@ -1,52 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
+import Swal from "sweetalert2";
 import "../styles/JoinWaitlist.css";
 import JoinWaitlistImg from "../assets/img/map.png";
 
 const JoinWaitlist: React.FC = () => {
-  const [isFormVisible, setIsFormVisible] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const toggleForm = () => setIsFormVisible(!isFormVisible);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setMessage(""); // Clear previous messages
-
-    try {
-      // Use fetch to debug if axios is failing
-      const response = await fetch("https://maptapp.atwebpages.com/api/post_waitinglist.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email }),
-      });
-
-      const data = await response.json();
-
-      console.log(data); // Log the response
-
-      if (data.status === "success") {
-        setMessage("🎉 Successfully joined the waitlist!");
-        setName("");
-        setEmail("");
-      } else {
-        setMessage("❌ Failed to join: " + data.message);
-      }
-    } catch (error) {
-      console.error("Error occurred:", error); // Log the error
-
-      setMessage("❌ No response from the server. Please try again.");
-    }
-
-    // Clear message after 3 seconds
-    setTimeout(() => setMessage(""), 3000);
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -62,42 +20,68 @@ const JoinWaitlist: React.FC = () => {
         <p>Join the Adventure!</p>
         <p>📧 Sign up now and be the first to experience the future of travel.</p>
 
-        <button className="black-button" onClick={toggleForm}>
-          {isFormVisible ? "Close Form" : "Join the Waitlist"}
-        </button>
+        <button
+          className="black-button"
+          onClick={async () => {
+            const { value: formValues } = await Swal.fire({
+              title: "Join the Waitlist",
+              html: `
+                <input id="name" class="swal2-input" placeholder="Enter your name">
+                <input id="email" class="swal2-input" placeholder="Enter your email">
+              `,
+              focusConfirm: false,
+              preConfirm: () => {
+                const name = (document.getElementById("name") as HTMLInputElement).value;
+                const email = (document.getElementById("email") as HTMLInputElement).value;
+                if (!name || !email) {
+                  Swal.showValidationMessage("Please enter both name and email");
+                }
+                return { name, email };
+              },
+              confirmButtonText: "Join Now!",
+              didOpen: () => {
+                const inputs = document.querySelectorAll(".swal2-input");
+                inputs.forEach((input) => {
+                  (input as HTMLElement).style.borderRadius = "30px";
+                });
+                const confirmButton = document.querySelector(".swal2-confirm") as HTMLElement;
+                confirmButton.style.borderRadius = "30px";
+                confirmButton.style.backgroundColor = "#333";
+                confirmButton.style.color = "white";
+                confirmButton.style.padding = "15px 30px";
+              },
+            });
 
-        {/* Expandable Form Section */}
-        {isFormVisible && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            transition={{ duration: 0.5 }}
-            className="waitlist-form"
-          >
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your name"
-                className="form-control"
-                required
-              />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="form-control"
-                required
-              />
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
-            {message && <p className="message">{message}</p>}
-          </motion.div>
-        )}
+            if (formValues) {
+              const { name, email } = formValues;
+              try {
+                const response = await fetch("https://maptapp.atwebpages.com/api/post_waitinglist.php", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ name, email }),
+                });
+                const data = await response.json();
+                if (data.status === "success") {
+                  Swal.fire({
+                    title: "Success",
+                    text: "You have been added to the waitlist!",
+                    icon: "success",
+                    confirmButtonText: 'OK',  // Optional: You can customize the button text
+                    customClass: {
+                      confirmButton: 'custom-button'  // Apply a custom class to the confirm button
+                    }
+                  });
+                } else {
+                  Swal.fire("Error", data.message, "error");
+                }
+              } catch (error) {
+                Swal.fire("Error", "Server not responding. Please try again.", "error");
+              }
+            }
+          }}
+        >
+          Join Now
+        </button>
       </div>
 
       <div className="join-image">

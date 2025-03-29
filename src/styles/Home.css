@@ -8,10 +8,9 @@ body, html {
 
 .home-container {
   display: flex;
-  justify-content: -spacebetween;
+  justify-content: space-between;
   align-items: center;
-  
-  height: 92vh;
+  min-height: 92vh; /* Changed from height to min-height */
   padding: 50px 10%;
   background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
 }
@@ -32,33 +31,37 @@ body, html {
   margin-bottom: 30px;
 }
 
-.black-button {
-  background-color: black;
-  color: white;
-  padding: 15px 30px;
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 30px;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-
-.black-button:hover {
-  background-color: white;
-  color: black;
-}
-
 .home-image {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   max-width: 40%;
 }
 
 .home-image img {
   width: 100%;
   height: auto;
-  max-width: auto;
-  max-height: auto;
   object-fit: contain;
+  display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto; /* Allow the container to adjust dynamically */
+    padding: 40px 5%;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .home-image {
+    max-width: 80%;
+    margin-top: 20px; /* Add spacing to prevent overlap with footer */
+  }
+
+  .home-image img {
+    width: 100%;
+    height: auto;
+  }
 }
