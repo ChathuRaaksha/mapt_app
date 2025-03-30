@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
             className={i18n.language === 'en' ? 'active' : ''}
             onClick={() => i18n.changeLanguage('en')}
           >
-            EN
+           EN
           </span>
           |
           <span
