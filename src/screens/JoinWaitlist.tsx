@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import "../styles/JoinWaitlist.css";
 import JoinWaitlistImg from "../assets/img/map.png";
-
+import { useTranslation } from 'react-i18next';
 const JoinWaitlist: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,18 +14,18 @@ const JoinWaitlist: React.FC = () => {
       className="join-container"
     >
       <div className="join-content">
-        <h1>Why Join the Waitlist</h1>
-        <p>🚀 First Access - Be among the first to try Mapt before the official launch.</p>
-        <p>📍 Beta Tester Benefits - Help shape the app and get early insights into new features.</p>
-        <p>🌱 Travel with Purpose - Discover experiences that support local communities and sustainability.</p>
-        <p>Join the Adventure!</p>
-        <p>📧 Sign up now and be the first to experience the future of travel.</p>
+        <h1>{t('join_title')}</h1>
+        <p>{t('join_p1')}</p>
+        <p>{t('join_p2')}</p>
+        <p>{t('join_p3')}</p>
+        <p>{t('join_p4')}</p>
+        <p>{t('join_p5')}</p>
 
         <button
           className="black-button"
           onClick={async () => {
             const { value: formValues } = await Swal.fire({
-              title: "Join the Waitlist",
+              title:  t('join_waitlist'),
               html: `
                 <input id="name" class="swal2-input" placeholder="Enter your name">
                 <input id="email" class="swal2-input" placeholder="Enter your email">
@@ -38,7 +39,7 @@ const JoinWaitlist: React.FC = () => {
                 }
                 return { name, email };
               },
-              confirmButtonText: "Join Now!",
+              confirmButtonText: t('join_btn'),
               didOpen: () => {
                 const inputs = document.querySelectorAll(".swal2-input");
                 inputs.forEach((input) => {
@@ -80,7 +81,7 @@ const JoinWaitlist: React.FC = () => {
             }
           }}
         >
-          Join Now
+         {t('join_btn')}
         </button>
       </div>
 

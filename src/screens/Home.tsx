@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import "../styles/Home.css";
 import homeImg from "../assets/img/home_img.png";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const handleStartPlanning = () => {
     navigate('/join-waitlist');
   };
@@ -17,14 +19,11 @@ const Home: React.FC = () => {
       className="home-container"
     >
       <div className="home-content">
-        <h1>Break from the Current Go with YOUR Flow</h1>
+        <h1>{t('home_title')}</h1>
         <p>
-          Hello, explorer! Mapt is your new travel companion, here to turn
-          'where should I go?' into 'wow, this feels like me.' Discover hidden
-          villages, vibrant cultures, and eco-friendly escapes—all tailored to
-          your rhythm.
+        {t('home_description')}
         </p>
-        <button className="black-button"  onClick={handleStartPlanning}>Join the Waitlist</button>
+        <button className="black-button"  onClick={handleStartPlanning}> {t('join_button')}</button>
       </div>
       <div className="home-image">
         <img src={homeImg} alt="Traveler illustration" />

@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import '../styles/Footer.css';
 import axios from 'axios';
-
+import { useTranslation } from 'react-i18next';
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-
+  const { t } = useTranslation();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setMessage(''); // Clear previous messages
@@ -43,11 +43,11 @@ const Footer: React.FC = () => {
         <Row className="py-4">
           <Col md={4}>
             <h5>MAPT</h5>
-            <p>"Go with, Your Flow"</p>
+            <p>{t('slogen')}</p>
           </Col>
-          
+
           <Col md={4}>
-            <h5>Contact</h5>
+            <h5>{t('contact')}</h5>
             <p>Email: info@mapt.se</p>
             <p>Phone: +46 123 456 789</p>
           </Col>
@@ -55,10 +55,9 @@ const Footer: React.FC = () => {
 
         <Row className="py-4 border-top">
           <Col md={6}>
-            <h5>Subscribe to MAPT</h5>
+            <h5>{t('subscribe_msg')}</h5>
             <p>
-              Join our newsletter for exclusive travel inspiration, Swedish adventures, 
-              and European dream destinations from MAPT.
+            {t('subscribe_description')}
             </p>
             <Form onSubmit={handleSubmit} className="d-flex">
               <Form.Control
@@ -70,13 +69,13 @@ const Footer: React.FC = () => {
                 required
               />
               <Button variant="primary" type="submit">
-                Subscribe
+              {t('subscribe_btn')}
               </Button>
             </Form>
             {message && <p className="message">{message}</p>}
           </Col>
           <Col md={6} className="text-md-end mt-4 mt-md-0">
-            <h5>Follow Us</h5>
+            <h5>{t('follow_msg')}</h5>
             <div>
               <a
                 href="https://facebook.com/mapt"
@@ -84,7 +83,7 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-white me-3"
               >
-               <>{FaFacebook({ size: 24 })}</>
+                <>{FaFacebook({ size: 24 })}</>
               </a>
               <a
                 href="https://instagram.com/mapt"
@@ -100,7 +99,7 @@ const Footer: React.FC = () => {
 
         <Row>
           <Col className="text-center py-3">
-            <p>© {new Date().getFullYear()} MAPT. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} {t('all_msg')}</p>
           </Col>
         </Row>
       </Container>

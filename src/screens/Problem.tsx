@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import "../styles/Problem.css";
 import ProblemImg from "../assets/img/problem.png";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const Problem: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const handleStartPlanning = () => {
     navigate('/join-waitlist');
   };
@@ -16,11 +18,10 @@ const Problem: React.FC = () => {
       className="problem-container"
     >
       <div className="problem-content">
-        <h1>The Problem: Travel is Overwhelming, Generic, and Unsustainable</h1>
-        <p>
-        Travelers today are bombarded with endless recommendations, making it difficult to decide where to go and what to do. Popular destinations suffer from overcrowding, leading to a loss of authenticity and an unsustainable strain on local communities and the environment. At the same time, destination marketing remains static and generic, failing to offer an interactive or personalized experience. Without a way to truly connect with a place, travel can feel repetitive, uninspiring, and even harmful to the places we visit.
-        </p>
-        <button className="black-button" onClick={handleStartPlanning}>Join the Waitlist</button>
+        <h1>{t('problem_title')}</h1>
+        <p>{t('problem_description')}
+       </p>
+        <button className="black-button" onClick={handleStartPlanning}>{t('join_button')}</button>
       </div>
       <div className="problem-image">
         <img src={ProblemImg} alt="Traveler illustration" />

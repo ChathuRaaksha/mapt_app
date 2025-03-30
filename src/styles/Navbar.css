@@ -71,6 +71,21 @@
 .navbar-logo {
   width: 150px; /* Logo size */
 }
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 20px; /* Adjust spacing as needed */
+}
+
+.language-switcher span {
+  cursor: pointer;
+}
+
+.language-switcher .active {
+  font-weight: bold;
+  color: #007bff; /* Highlight color for active language */
+}
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
@@ -103,7 +118,10 @@
   .navbar-right.open {
     display: flex;
   }
-
+  .navbar-right.open .language-switcher {
+    margin-left: 0;
+    padding: 10px;
+  }
   .nav-link {
     font-size: 18px;
     padding: 15px;

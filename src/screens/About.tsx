@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import "../styles/About.css";
 import EstherImg from "../assets/img/esterr.png";
 import SupunImg from "../assets/img/supun-.png";
-
+import { useTranslation } from 'react-i18next';
 const About: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -12,27 +13,26 @@ const About: React.FC = () => {
       transition={{ duration: 1 }}
       className="about-container"
     >
-      <h1 className="title">The masterminds behind Mapt!</h1>
+      <h1 className="title">  {t('about_title')}</h1>
 
       <div className="profile-grid">
         {/* Esther Cole */}
         <div className="profile-card">
           <img src={EstherImg} alt="Esther Cole" className="profile-img" />
           <h2>Esther Cole</h2>
-          <h3>CEO and Co-founder</h3>
+          <h3> {t('about_designation1')}</h3>
           <p>
-          Esther has a BA and MSc in tourism development and an MSc in marketing. She specializes in tourism product design and development, aiming to create memorable travel experiences while promoting sustainability. As a leader at Mapt, she ensures the company meets modern travelers' needs and fosters inclusivity and environmental consciousness, positioning Mapt as a positive force in travel.
+            {t('about_description1')}
           </p>
         </div>
 
         {/* Supun Chatranga */}
         <div className="profile-card">
-          <img src={SupunImg} alt="Supun Chatranga" className="profile-img" />
-          <h2>Supun Chatranga</h2>
-          <h3>CTO and Co-founder</h3>
+          <img src={SupunImg} alt="Supun Chathuranga" className="profile-img" />
+          <h2>Supun Chathuranga</h2>
+          <h3>{t('about_designation2')}</h3>
           <p>
-          Supun is an experienced software developer specializing in building scalable systems for the travel industry. He is passionate about leveraging technology to enhance user experiences and streamline operations. He holds a Master’s degree in Computer Science, a Master’s in Strategic Information Systems Management, and a BSc in Information Technology. He is also a Professional Member of the British Computer Society (MBCS), UK.
-          </p>
+            {t('about_description2')}  </p>
         </div>
       </div>
     </motion.div>
