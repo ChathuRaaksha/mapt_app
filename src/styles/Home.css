@@ -10,10 +10,36 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 92vh; /* Changed from height to min-height */
+  position: relative; /* For positioning background */
+  min-height: 92vh;
   padding: 50px 10%;
   background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
+  overflow: hidden;
 }
+
+/* Background image container similar to .bg-holder */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/img/hero/hero-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 1; /* You can reduce it if it's too intense */
+  z-index: 0;
+}
+
+/* Ensure your content stays above the background */
+
+.home-image {
+  position: relative;
+  z-index: 1;
+}
+
 
 .home-content {
   max-width: 50%;

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../styles/Home.css";
-import homeImg from "../assets/img/home_img.png";
+import homeImg from "../assets/img/hero/hero-img.png";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Home: React.FC = () => {
