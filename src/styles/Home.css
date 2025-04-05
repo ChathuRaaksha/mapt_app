@@ -11,10 +11,10 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
- /*  position: relative; For positioning background */
+  position: relative; 
   min-height: 100vh; /* Ensure the container fills the full height */
   padding: 0 10%; /* Remove extra top/bottom padding */
-  background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
+  background: linear-gradient(to bottom, #FEFFFF, #FFFEFE, #FFFEFE);
   overflow: hidden;
   z-index: 1; /* Ensure it is above other elements */
   flex-wrap: wrap; 
@@ -60,6 +60,22 @@ body, html {
   color: white; /* Orange text when hovering */
   border: 2px solid #F1A501; /* Border stays orange */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+.play-button {
+ /* background-color: #DF6951;*/
+ margin-left: 40px;
+  transition: all 0.3s ease;
+  
+}
+
+
+
+.danger-btn-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.danger-btn-shadow:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 

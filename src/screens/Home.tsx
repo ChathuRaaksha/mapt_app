@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../styles/Home.css";
 import homeImg from "../assets/img/hero/hero-img.png";
-//import playIcon from "../assets/img/hero/play.svg";
+import playIcon from "../assets/img/hero/play.svg";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
+import Swal from 'sweetalert2';
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const handleStartPlanning = () => {
@@ -14,7 +14,23 @@ const Home: React.FC = () => {
   };
   
   const { t } = useTranslation();
- 
+  const handlePlayDemo = () => {
+    Swal.fire({
+      title: 'Watch Demo',
+      html: `
+        <iframe width="100%" height="400" 
+          src="https://www.youtube.com/embed/Km-_Rt8IQUY?autoplay=1" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen>
+        </iframe>
+      `,
+      showCloseButton: true,
+      showConfirmButton: false,
+      width: '80%',
+      padding: '0',
+    });
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,8 +45,14 @@ const Home: React.FC = () => {
         </p>
         <button className="orange-button" onClick={handleStartPlanning}>{t('join_button')}</button>
 
-
+        <a href="#!" role="button" onClick={handlePlayDemo} className="play-button">
+          <span className="btn btn-danger round-btn-lg rounded-circle me-3 danger-btn-shadow">
+            <img src={playIcon} width="15" alt="play" />
+          </span>
+        </a>
+        <span className="fw-medium">Play Demo</span>
       </div>
+      
       
       <div className="home-image">
         <img src={homeImg} alt="Traveler illustration" />
