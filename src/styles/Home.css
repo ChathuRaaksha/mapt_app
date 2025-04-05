@@ -4,6 +4,7 @@ body, html {
   width: 100%;
   height: 100%;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .home-container {
@@ -11,13 +12,14 @@ body, html {
   justify-content: space-between;
   align-items: center;
   position: relative; /* For positioning background */
-  min-height: 92vh;
-  padding: 50px 10%;
+  min-height: 100vh; /* Ensure the container fills the full height */
+  padding: 0 10%; /* Remove extra top/bottom padding */
   background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
   overflow: hidden;
+  z-index: 1; /* Ensure it is above other elements */
 }
 
-/* Background image container similar to .bg-holder */
+/* Background image container */
 .home-container::before {
   content: "";
   position: absolute;
@@ -27,22 +29,42 @@ body, html {
   height: 100%;
   background-image: url('../assets/img/hero/hero-bg.svg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  opacity: 1; /* You can reduce it if it's too intense */
-  z-index: 0;
+  background-position: top center; /* Align the image to the top center */
+  background-size: cover; /* Ensure the image covers the container fully */
+  opacity: 1; /* Adjust opacity if needed */
+  z-index: 0; /* Keeps the background behind the content */
 }
-
-/* Ensure your content stays above the background */
 
 .home-image {
   position: relative;
+  z-index: 1; /* Ensures the image is not behind the content */
+}
+
+.orange-button {
+  background-color: #F1A501; /* Orange color */
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: 2px solid #F1A501; /* Matching border color with the button */
+  border-radius: 30px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow */
   z-index: 1;
+}
+
+.orange-button:hover {
+  background-color: #F1A501;
+  color: white; /* Orange text when hovering */
+  border: 2px solid #F1A501; /* Border stays orange */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 
 .home-content {
   max-width: 50%;
+  z-index: 1; /* Keeps the content above background */
 }
 
 .home-content h1 {
@@ -73,12 +95,15 @@ body, html {
   .home-container {
     flex-direction: column;
     text-align: center;
-    min-height: auto; /* Allow the container to adjust dynamically */
-    padding: 40px 5%;
+    min-height: 100vh; /* Ensure the container takes up the full screen */
+    padding: 0 5%; /* Remove extra padding */
+    background-size: cover; /* Ensure image covers the area */
+    background-position: top center; /* Align the image to the top center */
   }
 
   .home-content {
     max-width: 100%;
+    text-align: center; /* Center-align content on smaller screens */
   }
 
   .home-image {

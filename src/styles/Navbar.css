@@ -3,17 +3,17 @@
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.95);
-  padding: 20px 40px; /* Padding for more space */
-  border-radius: 40px; /* Rounded corners */
+  padding: 20px 40px;
+  border-radius: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between left logo and right nav links */
+  justify-content: space-between;
   gap: 30px;
   width: auto;
-  max-width: 90%; /* Limit width to 90% of the screen */
-  min-width: 900px; /* Ensure navbar has a minimum width */
+  max-width: 90%;
+  min-width: 900px;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -38,31 +38,29 @@
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #212832;
   font-size: 20px;
   font-weight: bold;
-  padding: 18px 35px; /* Increased padding for each link */
-  border: 2px solid black; /* Black border */
+  padding: 18px 35px;
+  border: 2px solid #212832;
   border-radius: 40px;
-  background-color: transparent; /* Transparent background */
-  transition: 0.3s ease-in-out;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
   position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  background-color: black;
-  height: fit-content;
-  width: auto;
-  color: white !important;
-  transform: scale(1.1); /* Make the text slightly bigger on hover */
+  background-color: #F1A501;
+  color: #ffffff !important;
+  border-color: #F1A501;
+  transform: none;
 }
 
 /* Fix for text visibility */
 .nav-button:hover {
   background-color: white;
-  color: black !important;
-  
+  color: #F1A501;
 }
 
 /* Centering the navbar content on large screens */
@@ -72,13 +70,15 @@
 }
 
 .navbar-logo {
-  width: 100px; /* Logo size */
+  width: 100px;
 }
+
+/* Language Switcher */
 .language-switcher {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-left: 20px; /* Adjust spacing as needed */
+  margin-left: 20px;
 }
 
 .language-switcher span {
@@ -88,7 +88,7 @@
 
 .language-switcher .active {
   font-weight: bold;
-  color: #0b0d0e; /* Highlight color for active language */
+  color: #0b0d0e;
 }
 
 /* Mobile responsive styles */
@@ -123,10 +123,12 @@
   .navbar-right.open {
     display: flex;
   }
+
   .navbar-right.open .language-switcher {
     margin-left: 0;
     padding: 10px;
   }
+
   .nav-link {
     font-size: 18px;
     padding: 15px;

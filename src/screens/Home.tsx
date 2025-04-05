@@ -2,15 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../styles/Home.css";
 import homeImg from "../assets/img/hero/hero-img.png";
+//import playIcon from "../assets/img/hero/play.svg";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const handleStartPlanning = () => {
+    console.log("Button clicked");
     navigate('/join-waitlist');
   };
-
+  
+  const { t } = useTranslation();
+ 
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,8 +27,11 @@ const Home: React.FC = () => {
         <p>
         {t('home_description')}
         </p>
-        <button className="black-button"  onClick={handleStartPlanning}> {t('join_button')}</button>
+        <button className="orange-button" onClick={handleStartPlanning}>{t('join_button')}</button>
+
+
       </div>
+      
       <div className="home-image">
         <img src={homeImg} alt="Traveler illustration" />
       </div>
