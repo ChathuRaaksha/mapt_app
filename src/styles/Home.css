@@ -11,12 +11,13 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* For positioning background */
+ /*  position: relative; For positioning background */
   min-height: 100vh; /* Ensure the container fills the full height */
   padding: 0 10%; /* Remove extra top/bottom padding */
   background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
   overflow: hidden;
   z-index: 1; /* Ensure it is above other elements */
+  flex-wrap: wrap; 
 }
 
 /* Background image container */
