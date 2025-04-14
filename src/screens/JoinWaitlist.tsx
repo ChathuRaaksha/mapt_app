@@ -56,7 +56,7 @@ const JoinWaitlist: React.FC = () => {
             if (formValues) {
               const { name, email } = formValues;
               try {
-                const response = await fetch("https://maptapp.atwebpages.com/api/post_waitinglist.php", {
+                const response = await fetch("https://apiweb.maptgo.com/post_waitinglist.php", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({ name, email }),
