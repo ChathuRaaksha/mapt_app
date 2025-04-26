@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../styles/Solution.css";
 import SolutionImg from "../assets/img/whymapt.png";
-import welcomeVideo from '../assets/video/solution.mp4';
+import welcomeVideo from '../assets/video/solution1.mp4';
 
 const Solution: React.FC = () => {
   const navigate = useNavigate();
