@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                 className="me-2"
                 required
               />
-              <Button variant="primary" type="submit">
+              <Button variant="secondary" type="submit">
               {t('subscribe_btn')}
               </Button>
             </Form>
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                 href="https://facebook.com/mapt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white me-3"
+                className="text-blue me-3"
               >
                 <>{FaFacebook({ size: 24 })}</>
               </a>
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
                 href="https://instagram.com/mapt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white"
+                className="text-black"
               >
                 <>{FaInstagram({ size: 24 })}</>
               </a>

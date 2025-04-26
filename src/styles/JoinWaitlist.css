@@ -12,7 +12,7 @@ body, html {
   align-items: center;
   min-height: 92vh;
   padding: 50px 10%;
-  background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
+  background: linear-gradient(to bottom, #FEFFFF, #FFFEFE, #FFFEFE);
   flex-wrap: wrap;
 }
 
@@ -61,6 +61,7 @@ body, html {
   width: 100%;
   height: auto;
   object-fit: contain;
+  user-select: none; /* prevents selecting the image */
 }
 
 @media (max-width: 768px) {

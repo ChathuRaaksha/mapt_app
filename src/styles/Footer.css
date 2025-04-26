@@ -1,8 +1,8 @@
 .footer {
-  background-color: black;
-  color: white;
+  background-color: #F8F6FD;
+  color: rgb(7, 6, 6);
   text-align: center;
-  padding: 20px;
+  padding: 7px;
   font-size: 14px;
   position: relative; /* Ensures it doesn't overlap */
   width: 100%;

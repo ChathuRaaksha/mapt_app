@@ -2,10 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import "../styles/JoinWaitlist.css";
-import JoinWaitlistImg from "../assets/img/map.png";
+import JoinWaitlistImg from "../assets/img/mob.png";
 import { useTranslation } from 'react-i18next';
+
 const JoinWaitlist: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,7 +15,13 @@ const JoinWaitlist: React.FC = () => {
       transition={{ duration: 1 }}
       className="join-container"
     >
-      <div className="join-content">
+      {/* Content */}
+      <motion.div
+        className="join-content"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
+      >
         <h1>{t('join_title')}</h1>
         <p>{t('join_p1')}</p>
         <p>{t('join_p2')}</p>
@@ -21,11 +29,13 @@ const JoinWaitlist: React.FC = () => {
         <p>{t('join_p4')}</p>
         <p>{t('join_p5')}</p>
 
-        <button
-          className="black-button"
+        <motion.button
+          className="orange-button"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
           onClick={async () => {
             const { value: formValues } = await Swal.fire({
-              title:  t('join_waitlist'),
+              title: t('join_waitlist'),
               html: `
                 <input id="name" class="swal2-input" placeholder="Enter your name">
                 <input id="email" class="swal2-input" placeholder="Enter your email">
@@ -67,9 +77,9 @@ const JoinWaitlist: React.FC = () => {
                     title: "Success",
                     text: "You have been added to the waitlist!",
                     icon: "success",
-                    confirmButtonText: 'OK',  // Optional: You can customize the button text
+                    confirmButtonText: 'OK',
                     customClass: {
-                      confirmButton: 'custom-button'  // Apply a custom class to the confirm button
+                      confirmButton: 'custom-button'
                     }
                   });
                 } else {
@@ -81,13 +91,28 @@ const JoinWaitlist: React.FC = () => {
             }
           }}
         >
-         {t('join_btn')}
-        </button>
-      </div>
+          {t('join_btn')}
+        </motion.button>
+      </motion.div>
 
-      <div className="join-image">
-        <img src={JoinWaitlistImg} alt="Traveler illustration" />
-      </div>
+      {/* Image */}
+      <motion.div
+        className="join-image"
+        drag
+        dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
+        dragElastic={0.5}
+        whileHover={{ rotate: [0, 10, -10, 10, 0], transition: { duration: 1 } }}
+        whileTap={{ rotate: 360 }}
+      >
+        <motion.img
+          src={JoinWaitlistImg}
+          alt="Traveler illustration"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          style={{ cursor: "grab" }}
+        />
+      </motion.div>
     </motion.div>
   );
 };

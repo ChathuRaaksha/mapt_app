@@ -1,4 +1,4 @@
-/* frontend/src/styles/Solution.css */
+/* Main Wrapper */
 body, html {
   margin: 0;
   padding: 0;
@@ -6,51 +6,63 @@ body, html {
   height: 100%;
   font-family: "Poppins", sans-serif;
 }
-
-.solution-container {
+.solution-wrapper {
   display: flex;
-  justify-content: space-between; /* Fixed typo */
+  flex-direction: column;
   align-items: center;
-  min-height: 92vh; /* Changed from height to min-height */
-  padding: 100px 10% 50px; /* Added top padding to prevent overlap with navbar */
-  background: linear-gradient(to bottom, #FEFFFF, #D9F7FF, #B9F1FE);
-  flex-wrap: wrap; /* Allow wrapping for better mobile layout */
+  padding: 100px 10% 50px;
+  background: linear-gradient(to bottom, #FEFFFF, #FFFEFE, #FFFEFE);
+  font-family: "Poppins", sans-serif;
 }
 
-.solution-content {
+/* Top Section (Intro + Image) */
+.solution-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.solution-text {
+  flex: 1;
   max-width: 50%;
+  padding-right: 5%;
 }
 
-.solution-content h1 {
+.solution-text h1 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
 }
 
-.solution-content p {
+.solution-text p {
   font-size: 1.25rem;
   color: #333;
   margin-bottom: 30px;
 }
 
-.black-button {
-  background-color: black;
+.orange-button {
+  background-color: #F1A501;
   color: white;
   padding: 15px 30px;
   font-size: 18px;
-  border: 2px solid black;
+  border: 2px solid #F1A501;
   border-radius: 30px;
-  transition: 0.3s ease;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.black-button:hover {
+.orange-button:hover {
   background-color: white;
-  color: black;
+  color: #F1A501;
 }
 
 .solution-image {
-  max-width: 40%;
+  flex: 1;
+  max-width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,23 +72,150 @@ body, html {
   width: 100%;
   height: auto;
   object-fit: contain;
+  border: 8px solid #F1A501;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
-/* Responsive Styles */
+.solution-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Video Section */
+.video-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  margin: 50px 0;
+  border-radius: 40px;
+}
+
+.solutions-video {
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Info Sections (Travelers & Destinations) */
+.info-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px 0;
+  padding: 0 20px;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.info-content.reverse {
+  flex-direction: row-reverse;
+}
+
+.info-image {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.info-image img:hover {
+  transform: scale(1.05);
+}
+
+.info-text {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.info-text h3 {
+  font-size: 2.5rem;
+  color: #F1A501;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.info-text p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Destination Benefits List */
+.destination-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.destination-benefits li {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  position: relative;
+  padding-left: 25px;
+  text-align: left;
+}
+
+.destination-benefits li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .solution-container {
+  .solution-top {
     flex-direction: column;
     text-align: center;
-    min-height: auto;
-    padding: 80px 5% 40px; /* Adjusted top padding */
   }
 
-  .solution-content {
+  .solution-text, .solution-image {
     max-width: 100%;
+    padding: 0;
   }
 
-  .solution-image {
-    max-width: 80%;
-    margin-top: 20px; /* Added margin to avoid overlapping */
+  .solutions-video {
+    width: 95%;
+  }
+
+  .info-content, .info-content.reverse {
+    flex-direction: column;
+  }
+
+  .info-image, .info-text {
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  .solution-text h1,
+  .info-text h3 {
+    font-size: 2rem;
+  }
+
+  .solution-text p,
+  .info-text p,
+  .destination-benefits li {
+    font-size: 1rem;
   }
 }
