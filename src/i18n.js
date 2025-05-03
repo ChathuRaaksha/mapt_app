@@ -12,8 +12,8 @@ i18n
       en: { translation: en },
       sv: { translation: sv }
     },
-    lng: 'sv', // Default language: Swedish
-    fallbackLng: 'sv', // Fallback to Swedish if language not found
+    lng: 'en', // Default language: Swedish
+    fallbackLng: 'en', // Fallback to Swedish if language not found
     interpolation: {
       escapeValue: false // React already escapes values
     },

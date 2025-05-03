@@ -4,16 +4,23 @@ import Swal from "sweetalert2";
 import "../styles/JoinWaitlist.css";
 import JoinWaitlistImg from "../assets/img/mob.png";
 import { useTranslation } from 'react-i18next';
-
+import heroBg from "../assets/img/hero/hero-bg.svg";
 const JoinWaitlist: React.FC = () => {
   const { t } = useTranslation();
 
   return (
+     
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="join-container"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover',
+      }}
     >
       {/* Content */}
       <motion.div
@@ -114,6 +121,7 @@ const JoinWaitlist: React.FC = () => {
         />
       </motion.div>
     </motion.div>
+
   );
 };
 

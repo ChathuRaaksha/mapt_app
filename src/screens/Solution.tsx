@@ -15,6 +15,7 @@ const Solution: React.FC = () => {
   };
 
   return (
+  
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -118,6 +119,7 @@ const Solution: React.FC = () => {
   </div>
 </motion.section>
     </motion.div>
+   
   );
 };
 

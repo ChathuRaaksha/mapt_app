@@ -35,6 +35,7 @@ const Home: React.FC = () => {
   };
 
   return (
+     
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -98,6 +99,7 @@ const Home: React.FC = () => {
         <img src={homeImg} alt="Traveler illustration" />
       </motion.div>
     </motion.div>
+   
   );
 };
 

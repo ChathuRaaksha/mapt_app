@@ -4,6 +4,7 @@ import "../styles/Problem.css";
 import ProblemImg from "../assets/img/howit.png";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Tilt from 'react-parallax-tilt';
 
 const Problem: React.FC = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Problem: React.FC = () => {
   ];
 
   return (
+    
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -75,10 +77,20 @@ const Problem: React.FC = () => {
         </button>
       </div>
 
-      <div className="problem-image">
-        <img src={ProblemImg} alt="Traveler illustration" />
-      </div>
+      <Tilt
+  glareEnable={true}
+  glareMaxOpacity={0.45}
+  scale={1.05}
+  transitionSpeed={2500}
+  tiltMaxAngleX={15}
+  tiltMaxAngleY={15}
+>
+  <div className="problem-image">
+    <img src={ProblemImg} alt="Traveler illustration" />
+  </div>
+</Tilt>
     </motion.div>
+ 
   );
 };
 

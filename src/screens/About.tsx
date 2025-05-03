@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import "../styles/About.css";
 import TravelImg1 from "../assets/img/aboutus2.png";
 import TravelImg2 from "../assets/img/aboutus1.png";
-import EstherImg from "../assets/img/esther.png";
-import SupunImg from "../assets/img/supun.png";
+//import EstherImg from "../assets/img/esther.png";
+//import SupunImg from "../assets/img/supun.png";
 import { useTranslation } from "react-i18next";
 import HeroImage from "../assets/img/hero.png";
 const About: React.FC = () => {
@@ -21,11 +21,11 @@ const About: React.FC = () => {
  {/* Hero Section */}
  <section className="hero-section">
         <img src={HeroImage} alt="Travel Girl" className="hero-image" />
-        <div className="hero-text">
+   {/*      <div className="hero-text">
           <p className="who-we-are">{t("who_we_are")}</p>
           <h1 className="hero-title">{t("discover_team")}</h1>
           <p className="hero-description">{t("intro_text")}</p>
-        </div>
+        </div> */}
       </section>
       {/* ————— Travel Story Block 1 ————— */}
       <motion.section
@@ -66,10 +66,10 @@ const About: React.FC = () => {
       </motion.section>
 
       {/* ————— Section Title ————— */}
-      <h1 className="about-title">{t("about_title")}</h1>
+      {/* <h1 className="about-title">{t("about_title")}</h1> */}
 
       {/* ————— Profile Cards ————— */}
-      <motion.div
+   {/*    <motion.div
         className="profile-grid"
         initial="hidden"
         whileInView="visible"
@@ -111,7 +111,7 @@ const About: React.FC = () => {
             <p>{p.desc}</p>
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };

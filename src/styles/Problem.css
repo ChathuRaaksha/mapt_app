@@ -18,30 +18,22 @@ body, html {
 }
 
 .problem-image {
-  width: 57vh; /* Increase this to enlarge */
-  height: 77vh;
+  width: 100%;
+  max-width: 500px; /* or whatever looks good */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-
-  /* Add this to make it not shift other elements */
   flex-shrink: 0;
   position: relative;
 }
 
 .problem-image img {
-  width: 100%; /* Increase for enlargement */
-  height: 85%;
+  width: 100%;
+  height: auto;
   object-fit: contain;
-  border-radius: 10ch;
-  scrollbar-darkshadow-color: #00bcd4;
-
-  /* Center within container */
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  max-height: 70vh; /* prevents image being too tall on mobile */
 }
 
 
@@ -163,7 +155,7 @@ body, html {
     padding: 60px 5%;
   }
 
-  .problem-image, .problem-content {
+  .problem-content {
     width: 100%;
     border-radius: 10ch;
   }
@@ -178,5 +170,16 @@ body, html {
 
   .problem-cta h2 {
     font-size: 1.3rem;
+  }
+  .problem-image {
+    max-width: 90%;
+    padding: 10px;
+    border-radius: 30px;
+    margin-top: 10vh;
+  }
+  
+  .problem-image img {
+    border-radius: 30px;
+    max-height: 50vh;
   }
 }

@@ -195,6 +195,10 @@ body, html {
     padding: 0;
   }
 
+  .solution-image {
+    margin-top: 5vh;
+  }
+
   .solutions-video {
     width: 95%;
   }

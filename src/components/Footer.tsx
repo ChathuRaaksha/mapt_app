@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
 
           <Col md={4}>
             <h5>{t('contact')}</h5>
-            <p>Email: info@mapt.se</p>
-            <p>Phone: +46 123 456 789</p>
+            <p>Email: info@maptgo.com</p>
+            <p>Phone: +46 76 223 1977 / +46 76 264 6237</p>
           </Col>
         </Row>
 

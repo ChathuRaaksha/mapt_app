@@ -19,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/solution" element={<Solution />} />
         <Route path="/about" element={<About />} />
         <Route path="/join-waitlist" element={<JoinWaitlist />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
     </Router>
